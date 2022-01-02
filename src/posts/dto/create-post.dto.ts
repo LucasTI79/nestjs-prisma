@@ -1,13 +1,14 @@
-import { IsBoolean, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsEmail, IsNumber, IsOptional, IsString } from 'class-validator';
 import { Post } from '../entities/post.entity';
 
 export class CreatePostDto extends Post {
-  @IsNumber()
-  authorId?: number;
+  @IsEmail()
+  authorEmail: string;
+
   @IsString()
+  @IsOptional()
   content?: string;
-  @IsBoolean()
-  published?: boolean;
+
   @IsString()
   title: string;
 }
